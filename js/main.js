@@ -125,12 +125,26 @@ jQuery(document).ready(function($) {
 
 jQuery(document).ready(function($) {
     $('.my-hero-slider').owlCarousel({
-        items: 1,               // Show one slide at a time
-        loop: true,             // Loop back to the first slide
-        nav: false,             // No next/prev arrows
-        dots: true,             // Display dot navigation
-        autoplay: true,         // Auto-advance slides
-        autoplayTimeout: 5000,  // 5 seconds
-        autoplayHoverPause: false // Pause on hover
+      items: 1,               // Default is 1 slide at a time
+      loop: true,             // Loop back to the first slide
+      nav: false,             // No next/prev arrows
+      dots: true,             // Display dot navigation
+      autoplay: true,         // Auto-advance slides
+      autoplayTimeout: 5000,  // 5 seconds
+      autoplayHoverPause: false,
+      // Make sure Owl uses these breakpoints:
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
     });
-});
+  });
+  

@@ -67,7 +67,7 @@ $images = get_field('home_gallery');
 // Only proceed if we have images
 if ($images && is_array($images)) :
 ?>
-<section class="container-fw services-container iso-bg">
+<section class="container-fw recent-work-container iso-bg">
     <div class="container">
         <div class="align-center">
             <h2>Some Recent Work</h2>
@@ -88,13 +88,16 @@ if ($images && is_array($images)) :
             // If you’re storing a separate Title/Description in custom fields, you can reference them here instead
         ?>
             <!-- Card -->
-            <div class="col-md-4 cgs-card" data-modal="modal-<?php echo $index; ?>">
-                <div class="card-image">
-                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_title); ?>" />
+            <div class="col-md-4">
+                <div class="cgs-card" data-modal="modal-<?php echo $index; ?>">
+                    <div class="card-image">
+                        <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_title); ?>" />
+                    </div>
+                    <h2 class="card-title"><?php echo esc_html($img_title); ?></h2>
+                    <p class="card-description"><?php echo esc_html($img_desc); ?></p>
                 </div>
-                <h2 class="card-title"><?php echo esc_html($img_title); ?></h2>
-                <p class="card-description"><?php echo esc_html($img_desc); ?></p>
             </div>
+            
 
             <!-- Corresponding Modal -->
             <div class="cgs-modal" id="modal-<?php echo $index; ?>">
@@ -118,8 +121,7 @@ if ($images && is_array($images)) :
 <section class="container-fw solution-container light-bg">
     <div class="container">
         <div class="row">
-
-            <div class="col-md-5 solution-image">
+            <div class="col-md-7 solution-image">
                 <?php
                 $solution_image = get_field('about_image');
                 if ($solution_image) {
@@ -129,7 +131,7 @@ if ($images && is_array($images)) :
                 }
                 ?>
             </div>
-            <div class="col-md-7 solution-content">
+            <div class="col-md-5 solution-content">
                 <?php
                 $solution_content = get_field('about_text');
                 if ($solution_content) {
