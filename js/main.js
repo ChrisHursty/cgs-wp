@@ -40,6 +40,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Home Page Gallery
+document.addEventListener("DOMContentLoaded", function() {
+    // Open modal on card click
+    const cards = document.querySelectorAll(".cgs-card");
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            const modalId = card.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if(modal) {
+            modal.classList.add("active");
+            }
+        });
+    });
+  
+    // Close modal on close button or overlay click
+    const modalCloseTriggers = document.querySelectorAll("[data-close]");
+    modalCloseTriggers.forEach(trigger => {
+        trigger.addEventListener("click", () => {
+            const modalId = trigger.getAttribute("data-close");
+            const modal = document.getElementById(modalId);
+            if(modal) {
+            modal.classList.remove("active");
+            }
+        });
+    });
+});  
+
 // FAQ's
 document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
