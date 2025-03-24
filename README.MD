@@ -1,7 +1,7 @@
-Urban Spark 3.0
-===============
+CGS Construction 1.0
+====================
 
-Urban Spark 3.0 is a versatile, multi-industry WordPress theme designed by Chris Hurst, optimized for both portfolio and business websites. This theme supports modern web development practices with live reload features, customizable content areas, and responsive design.
+CGS Construction 1.0 is a versatile, multi-industry WordPress theme designed by Chris Hurst, optimized for both portfolio and business websites. This theme supports modern web development practices with live reload features, customizable content areas, and responsive design.
 
 Prerequisites
 -------------
