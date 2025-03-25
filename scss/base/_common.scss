@@ -71,6 +71,11 @@ figure {
     color: $white;
 }
 
+.white-bg {
+    background-color: $white;
+    color: $dark-grey;
+}
+
 .dark-bg {
     background: linear-gradient(to right, $light-primary, $dark-primary);
     color: $white;

@@ -62,32 +62,29 @@ echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
 
 ?>
 <!-- LP HERO -->
-<section class="container-fw lp-hero light-bg">
+<section class="container-fw lp-hero white-bg">
     <div class="container">
         <div class="row">
             <div class="col-md-7 lp-hero-content align-left">
-                <h1>Johanna Clark Hair | Expert Balayage and Hair Services Near <?php the_field('location_name'); ?> in Brookhaven</h1>
+                <h1>CGS Construction, General Contractor, serving <?php the_field('location_name'); ?> &amp; surrounding areas</h1>
                 <div class="lp-hero-text">
                     <?php echo wp_kses_post(get_field('additional_details')); ?>
                 </div>
                 <div class="button-box">
-                    <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="jch-btn">
-                        <span>Book An Appointment<i style="margin-left: 6px;" class="fas fa-external-link-alt"></i></span>
+                    <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="spark-btn">
+                        <span>Free Quote<i style="margin-left: 6px;" class="fas fa-external-link-alt"></i></span>
                     </a>
                 </div>
             </div>
 
             <div class="col-md-5 lp-hero-image align-right">
                 <?php 
-                $hero_video = get_field('lp_video', 'option'); 
-                if ($hero_video) {
-                    $video_url = esc_url($hero_video['url']);
-                    echo '<video class="lp-hero-video" autoplay muted loop playsinline>
-                            <source src="' . $video_url . '" type="video/mp4">
-                            Your browser does not support the video tag.
-                          </video>';
+                $hero_image = get_field('lp_image', 'option');
+                if ($hero_image) {
+                    $image_url = esc_url($hero_image['url']);
+                    echo '<img class="lp-hero-image" src="' . $image_url . '" alt="Hero Image">';
                 } else {
-                    echo '<p>Video not available.</p>'; // Optional message if the video is missing
+                    echo '<p>Image not available.</p>'; // Optional fallback message
                 }
                 ?>
             </div>
@@ -96,28 +93,30 @@ echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
 </section>
 
 <!-- About Section -->
-<section class="container about-section">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 align-left image">
-            <?php 
-            if (has_post_thumbnail()) {
-                echo get_the_post_thumbnail(get_the_ID(), 'full', ['alt' => get_the_title()]);
-            } else {
-                echo '<p>No featured image available.</p>';
-            }
-            ?>
-        </div>
-        <div class="col-sm-12 col-md-6 align-right content">
-            <?php echo apply_filters('the_content', get_field('lp_intro', 'option')); ?>
-            <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="jch-btn white-btn">
-                <span>Book An Appointment<i style="margin-left: 6px;" class="fas fa-external-link-alt"></i></span>
-            </a>
+<section class="container-fw about-section light-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 align-left image">
+                <?php 
+                if (has_post_thumbnail()) {
+                    echo get_the_post_thumbnail(get_the_ID(), 'full', ['alt' => get_the_title()]);
+                } else {
+                    echo '<p>No featured image available.</p>';
+                }
+                ?>
+            </div>
+            <div class="col-sm-12 col-md-6 align-right content">
+                <?php echo apply_filters('the_content', get_field('lp_intro', 'option')); ?>
+                <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="spark-btn light-btn">
+                    <span>Request a Quote<i style="margin-left: 6px;" class="fas fa-external-link-alt"></i></span>
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Services -->
-<section class="container-fw services-container dark-bg">
+<section class="container-fw services-container iso-bg">
     <div class="container">
         <div class="align-center">
             <h2>Services</h2>
@@ -126,12 +125,12 @@ echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
     <div class="container">
         <div class="row">
             <?php
-            $home_page_id = 5;
+            $home_page_id = 96;
             $services = get_field('services', $home_page_id);
 
             if (is_array($services)) {
                 foreach ($services as $service) {
-                    echo '<div class="service-item"><div class="service-content">';
+                    echo '<div class="col-md-4 service-item"><div class="service-content">';
                     if (!empty($service['title'])) {
                         echo '<h2 class="service-title">' . esc_html($service['title']) . '</h2>';
                     }
@@ -145,7 +144,7 @@ echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
             }
             ?>
         </div>
-        <a class="jch-btn align-center white-btn" href="/services"><span>View All Of Our Services</span></a>
+        <a class="spark-btn align-center white-btn" href="/services"><span>View All Of Our Services</span></a>
     </div>
 </section>
 
