@@ -246,32 +246,3 @@ function flush_rewrite_rules_after_options_save( $post_id ) {
         flush_rewrite_rules();
     }
 }
-
-function get_visitor_location() {
-    $api_key = '9d38980ad55111';  // Replace with your IPinfo API key
-    $ip_address = $_SERVER['REMOTE_ADDR'];
-    
-    // Check if the IP is local (127.0.0.1 or ::1 for IPv6), use a test IP instead
-    if ($ip_address == '127.0.0.1' || $ip_address == '::1') {
-        $ip_address = '8.8.8.8';  // Use a public IP for testing, e.g., Google's DNS
-    }
-    
-    // Fetch location data from the API
-    $response = wp_remote_get("https://ipinfo.io/{$ip_address}/json?token={$api_key}");
-    
-    if( is_wp_error( $response ) ) {
-        return false;
-    }
-    
-    $data = json_decode(wp_remote_retrieve_body($response));
-    
-    if (isset($data->city)) {
-        return $data->city . ', ' . $data->region;
-    } else {
-        return 'Your Location';
-    }
-}
-
-// Usage Example
-$location = get_visitor_location();
-
